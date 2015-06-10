@@ -1,0 +1,22 @@
+include header
+script(type='text/javascript').
+  require(['js/helper/require-reference'], function(reference){
+  require(['js/controller/DashBoardController'], function(DashBoardController){
+    var dashBoardControllerObject = new DashBoardController();
+  });
+  });
+//- -if(locals !== undefined && locals !== null && locals !== ''){ 
+  localStorage.setItem('localsObj', locals); }
+//- #{locals.userDetail}
+.wrapper
+    include navigation
+    include sidebar
+    // Content Wrapper. Contains page content
+    .content-wrapper
+      // Content Header (Page header)
+      include content_header
+      // Main content
+      include main_content
+      // /.content
+    // /.content-wrapper
+    include footer  

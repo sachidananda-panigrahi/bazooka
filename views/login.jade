@@ -1,0 +1,26 @@
+include header
+script(type='text/javascript').
+  require(['js/helper/require-reference'], function(reference){
+  require(['js/controller/LoginController'], function(LoginController){
+  var loginControllerObject = new LoginController();
+  });
+  });
+section.login_section
+    .container
+        .card.card-container
+            img#profile-img.profile-img-card(src='images/user/user_profile.jpg')
+            p#profile-name.profile-name-card
+            form#loginForm.form-signin(action='/login_method', method='post', novalidate='')
+                - if(message.length > 0)
+                    span#reauth-email.reauth-email The email or password you entered is incorrect.
+                input#inputEmail.form-control(type='email', name='email', placeholder='Email address', autofocus='')
+                input#inputPassword.form-control(type='password', name='password', placeholder='Password')
+                #remember.checkbox
+                    label
+                        input(name='remember', type='checkbox', value='true')
+                        |  Remember me
+                input.btn.btn-lg.btn-primary.btn-block.btn-signin(type='submit', value='Sign In')
+            a.forgot-password(href='javascript:void(0)')
+                | Forgot the password?
+            a.create-account(href='/signup')
+                | Create an account    
